@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="full-image" id="fullImgBox">
+        <button type="button" id="prevBtn" aria-label="Previous image">&#10094;</button>
+        <img src="images/image1.avif" id="fullImg">
+        <button type="button" id="nextBtn" aria-label="Next image">&#10095;</button>
+        <span onclick="closefullImg()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-x preview-icon">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </svg></span>
+    </div>
+    <div class="text">
+        <h1>Image Gallery</h1>
+    </div>
+    <div class="image-gallery">
+        <img width="300" height="200" src="images/image1.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image2.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image3.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image4.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image5.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image6.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image7.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image8.avif" onclick="openfullImg(this.src)">
+    </div>
+    <script>
+        var fullImgBox = document.getElementById("fullImgBox");
+        var fullImg = document.getElementById("fullImg");
+        var galleryImgs = document.querySelectorAll(".image-gallery img");
+        var prevBtn = document.getElementById("prevBtn")
+        var nextBtn = document.getElementById("nextBtn")
+        var currentIndex = 0;
+
+        function openfullImg(pic) {
+            fullImgBox.style.display = "flex";
+            fullImg.src = pic;
+            for (var i = 0; i < galleryImgs.length; i++) {
+                if (galleryImgs.length.src === pic) {
+                    currentIndex = i
+                    break;
+                }
+            }
+        }
+
+
+
+        function closefullImg() {
+            fullImgBox.style.display = "none";
+        }
+
+        prevBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+            fullImg.src = galleryImgs[currentIndex].src;
+        });
+
+        nextBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % galleryImgs.length;
+            fullImg.src = galleryImgs[currentIndex].src;
+        });
+    </script>
+</body>
+
+</html>

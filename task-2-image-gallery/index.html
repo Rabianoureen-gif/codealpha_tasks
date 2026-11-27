@@ -20,10 +20,33 @@
                 <path d="m6 6 12 12" />
             </svg></span>
     </div>
-    <div class="text">
-        <h1>Image Gallery</h1>
-    </div>
-    <div class="image-gallery">
+    <main>
+        <nav>
+            <div class="navhead">
+                <h1>Image<span>Gallery</span></h1>
+            </div>
+            <div class="nav-items">
+                <a href="#">Home</a>
+                <a href="#gallery">Images</a>
+            </div>
+        </nav>
+        <div class="heroimg">
+            <img src="images/hero-image.avif" alt="">
+            <div class="hero-content">
+                <h1>Captured Moments in Stillness</h1>
+                <p>A curated collection of calm landscapes, natural light, and everyday scenes in one clean gallery.</p>
+                <a href="#gallery" class="hero-btn">Explore Gallery</a>
+            </div>
+        </div>
+
+
+    </main>
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-header">
+    <h1>Visual Collection</h1>
+    <p>Quiet landscapes, soft light, and minimalist spaces selected for full-screen viewing.</p>
+  </div>
+     <div class="image-gallery">
         <img width="300" height="200" src="images/image1.avif" onclick="openfullImg(this.src)">
         <img width="300" height="200" src="images/image2.avif" onclick="openfullImg(this.src)">
         <img width="300" height="200" src="images/image3.avif" onclick="openfullImg(this.src)">
@@ -32,7 +55,14 @@
         <img width="300" height="200" src="images/image6.avif" onclick="openfullImg(this.src)">
         <img width="300" height="200" src="images/image7.avif" onclick="openfullImg(this.src)">
         <img width="300" height="200" src="images/image8.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image9.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image10.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image11.avif" onclick="openfullImg(this.src)">
+        <img width="300" height="200" src="images/image12.avif" onclick="openfullImg(this.src)">
     </div>
+    </section>
+   
+   
     <script>
         var fullImgBox = document.getElementById("fullImgBox");
         var fullImg = document.getElementById("fullImg");
